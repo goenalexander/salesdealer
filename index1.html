@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo <span id="title_brand"></span> <span id="title_kota"></span> | Harga & Cicilan Terbaru</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <style id="dynamic-styles">
+        :root { --brand-color: #DC2626; --brand-color-dark: #B91C1C; --brand-color-light: #FEE2E2; }
+    </style>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* --- Gallery Styles --- */
+        .galeri-container {
+            @apply relative;
+        }
+        .galeri-swiper-row1, .galeri-swiper-row2 {
+            @apply pt-4 pb-2;
+        }
+        .gallery-image-wrapper {
+            @apply relative overflow-hidden rounded-t-lg shadow-lg cursor-pointer aspect-[4/3];
+        }
+        .gallery-image-wrapper img {
+            @apply w-full h-full object-cover;
+        }
+        .caption-block {
+            background-color: #2563EB; /* Solid Blue (blue-600) */
+            color: white;
+            text-align: center;
+            font-weight: 600; /* semibold */
+            padding: 2rem 1rem; /* 2rem top/bottom (py-8), 1rem left/right (px-4) */
+            border-bottom-left-radius: 0.5rem; /* rounded-b-lg */
+            border-bottom-right-radius: 0.5rem; /* rounded-b-lg */
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+            margin-top: -0.25rem; /* -mt-1 */
+            position: relative;
+        }
+
+        /* Pagination for Gallery */
+        .swiper-pagination-row1, .swiper-pagination-row2 {
+            @apply relative text-center pt-2;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #2563EB; /* Blue color for active pagination dot */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header id="header" class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img id="header_logo" alt="Logo Perusahaan" class="h-10 hidden">
+                <span class="text-xl font-bold text-[--brand-color]">
+                    <span id="header_brand"></span> 
+                </span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#hero" class="hover:text-[--brand-color] transition duration-300">Beranda</a>
+                <a href="#mobil" class="hover:text-[--brand-color] transition duration-300">Model Mobil</a>
+                <a href="#promo" class="hover:text-[--brand-color] transition duration-300">Promo</a>
+                <a href="#testimoni" class="hover:text-[--brand-color] transition duration-300">Testimoni</a>
+                <a href="#galeri" class="hover:text-[--brand-color] transition duration-300">Galeri</a>
+                <a href="#kontak" class="bg-[--brand-color] text-white px-4 py-2 rounded-full hover:bg-[--brand-color-dark] transition duration-300 font-semibold">Hubungi Saya</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden"><i data-lucide="menu" class="w-6 h-6"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
+            <a href="#hero" class="block py-2 hover:text-[--brand-color]">Beranda</a>
+            <a href="#mobil" class="block py-2 hover:text-[--brand-color]">Model Mobil</a>
+            <a href="#promo" class="block py-2 hover:text-[--brand-color]">Promo</a>
+            <a href="#testimoni" class="block py-2 hover:text-[--brand-color]">Testimoni</a>
+            <a href="#galeri" class="block py-2 hover:text-[--brand-color]">Galeri</a>
+            <a href="#kontak" class="block mt-2 text-center bg-[--brand-color] text-white px-4 py-2 rounded-full hover:bg-[--brand-color-dark]">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative text-white h-[80vh] flex items-center overflow-hidden">
+            <div id="hero-bg-slider" class="absolute inset-0 z-0">
+                </div>
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
+            <div class="container mx-auto px-6 text-center relative z-20">
+                <img id="hero_fotoProfil" src="https://placehold.co/150x150/FFFFFF/333333?text=Foto+Anda" alt="Foto Sales" class="w-36 h-36 rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-2">Punya Mobil Jadi Mudah!</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Saya, <span id="hero_nama" class="font-bold"></span>, siap membantu Anda mendapatkan mobil impian dengan proses cepat, data dibantu, dan promo terbaik di <span id="hero_kota" class="font-bold"></span>.</p>
+                <a id="hero_wa" href="#" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition duration-300 inline-flex items-center space-x-2"><i data-lucide="whatsapp"></i><span>Chat via WhatsApp</span></a>
+            </div>
+            <div id="hero-dots-container" class="absolute bottom-6 left-0 right-0 z-20 flex justify-center items-center space-x-2">
+                </div>
+        </section>
+
+        <section id="unggulan" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Kenapa Beli Mobil dari Saya?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6"><div class="flex justify-center mb-4"><div class="bg-[--brand-color-light] p-4 rounded-full"><i data-lucide="clock" class="w-8 h-8 text-[--brand-color]"></i></div></div><h3 class="text-xl font-bold mb-2">Proses Cepat & Mudah</h3><p class="text-gray-600">Saya pastikan proses pembelian berjalan cepat dan tanpa ribet.</p></div>
+                    <div class="p-6"><div class="flex justify-center mb-4"><div class="bg-[--brand-color-light] p-4 rounded-full"><i data-lucide="file-check-2" class="w-8 h-8 text-[--brand-color]"></i></div></div><h3 class="text-xl font-bold mb-2">Data Dibantu Sampai Approve</h3><p class="text-gray-600">Jangan khawatir, saya akan bantu carikan solusi terbaik agar kredit Anda disetujui.</p></div>
+                    <div class="p-6"><div class="flex justify-center mb-4"><div class="bg-[--brand-color-light] p-4 rounded-full"><i data-lucide="gift" class="w-8 h-8 text-[--brand-color]"></i></div></div><h3 class="text-xl font-bold mb-2">Bonus & Diskon Terbaik</h3><p class="text-gray-600">Dapatkan penawaran diskon paling menarik dan bonus melimpah.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mobil" class="py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Pilihan Mobil Terbaru</h2>
+                <div id="mobil-card-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+        
+        <section id="promo" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Promo Spesial Bulan Ini</h2>
+                <div id="promo-card-container" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+            </div>
+        </section>
+
+        <section id="testimoni" class="py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Kata Pelanggan Saya</h2>
+                <div id="testimoni-card-container" class="max-w-3xl mx-auto space-y-8">
+                    </div>
+            </div>
+        </section>
+
+        <section id="galeri" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Galeri Penyerahan Unit</h2>
+                
+                <div class="galeri-container">
+                    <div class="swiper galeri-swiper-row1">
+                        <div id="galeri-card-container-row1" class="swiper-wrapper">
+                            </div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-row1"></div>
+                </div>
+
+                <div class="galeri-container mt-8">
+                    <div class="swiper galeri-swiper-row2">
+                        <div id="galeri-card-container-row2" class="swiper-wrapper">
+                            </div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-row2"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="kontak" class="bg-[--brand-color] text-white">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h2 class="text-4xl font-bold mb-4">Siap Memiliki Mobil Impian Anda?</h2>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">Hubungi saya sekarang untuk mendapatkan penawaran harga dan simulasi kredit terbaik!</p>
+                <a id="kontak_wa" href="#" target="_blank" class="bg-white text-[--brand-color] px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transition duration-300 inline-flex items-center space-x-2"><i data-lucide="phone-call"></i><span>Hubungi Saya Sekarang</span></a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p id="footer_nama" class="font-bold text-lg"></p>
+            <p class="text-gray-400">Sales Consultant <span id="footer_brand"></span></p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a id="footer_wa" href="#" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="whatsapp" class="w-6 h-6"></i></a>
+                <a id="footer_telp" href="#" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="phone" class="w-6 h-6"></i></a>
+                <a id="footer_ig" href="#" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+            </div>
+            <p class="mt-8 text-sm text-gray-500">&copy; 2024 Dibuat untuk <span id="footer_credit_nama"></span>. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <a id="wa_melayang" href="#" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform duration-300 transform hover:scale-110 z-40"><i data-lucide="whatsapp" class="w-8 h-8"></i></a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const storageKey = 'salesWebsiteData';
+            const data = JSON.parse(localStorage.getItem(storageKey)) || {};
+
+            // --- RENDER FUNCTIONS ---
+            const renderTheme = (color = '#DC2626') => { const hexToRgb = (hex) => { if (!/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) return 'rgb(220,38,38)'; let p = hex.substring(1).split(''); if (p.length === 3) p = [p[0], p[0], p[1], p[1], p[2], p[2]]; const i = parseInt(p.join(''), 16); return `rgb(${(i >> 16) & 255},${(i >> 8) & 255},${i & 255})`; }; const shadeColor = (rgb, p) => { try { let [r,g,b] = rgb.match(/\d+/g).map(Number); const t=p<0?0:255*p,P=p<0?1+p:1-p; r=Math.round(r*P+t); g=Math.round(g*P+t); b=Math.round(b*P+t); return `rgb(${Math.min(255,Math.max(0,r))},${Math.min(255,Math.max(0,g))},${Math.min(255,Math.max(0,b))})`; } catch(e) { return rgb; } }; try { const rgb = hexToRgb(color); document.getElementById('dynamic-styles').innerHTML = `:root { --brand-color: ${color}; --brand-color-dark: ${shadeColor(rgb, -0.15)}; --brand-color-light: ${shadeColor(rgb, 0.9)}; }`; } catch (e) { console.error(e); } };
+            const populateText = (id, value) => { const el = document.getElementById(id); if (el && value) el.textContent = value; };
+            const populateHref = (id, value) => { const el = document.getElementById(id); if (el && value) el.href = value; };
+            const populateSrc = (id, value) => { const el = document.getElementById(id); if (el && value) el.src = value; };
+            
+            // --- RENDER DYNAMIC CONTENT ---
+            const renderHeroSlideshow = (data) => {
+                const sliderContainer = document.getElementById('hero-bg-slider');
+                const dotsContainer = document.getElementById('hero-dots-container');
+                if (!sliderContainer || !dotsContainer) return;
+
+                const images = [data.backgroundHero1, data.backgroundHero2, data.backgroundHero3].filter(Boolean);
+                
+                if (images.length === 0) {
+                    document.getElementById('hero').style.backgroundColor = '#333';
+                    return;
+                }
+
+                sliderContainer.innerHTML = '';
+                dotsContainer.innerHTML = '';
+                let currentIndex = 0;
+                let intervalId = null;
+
+                images.forEach((imgUrl, index) => {
+                    const bgDiv = document.createElement('div');
+                    bgDiv.className = 'absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out';
+                    bgDiv.style.backgroundImage = `url('${imgUrl}')`;
+                    bgDiv.style.opacity = index === 0 ? '1' : '0';
+                    sliderContainer.appendChild(bgDiv);
+                    
+                    if (images.length > 1) {
+                        const dot = document.createElement('span');
+                        dot.className = 'w-3 h-3 rounded-full bg-white/50 cursor-pointer transition-all';
+                        dot.addEventListener('click', () => {
+                            goToSlide(index);
+                        });
+                        dotsContainer.appendChild(dot);
+                    }
+                });
+
+                const slides = sliderContainer.children;
+                const dots = dotsContainer.children;
+
+                const updateActiveState = (index) => {
+                    for (let i = 0; i < slides.length; i++) {
+                        slides[i].style.opacity = i === index ? '1' : '0';
+                        if(dots[i]) {
+                           dots[i].classList.toggle('bg-white', i === index);
+                           dots[i].classList.toggle('bg-white/50', i !== index);
+                        }
+                    }
+                };
+                
+                const goToSlide = (slideIndex) => {
+                    currentIndex = slideIndex;
+                    updateActiveState(currentIndex);
+                    if (intervalId) { // Reset interval on manual navigation
+                        clearInterval(intervalId);
+                        startSlideshow();
+                    }
+                };
+
+                const startSlideshow = () => {
+                    const intervalSeconds = parseInt(data.backgroundInterval, 10);
+                    if (isNaN(intervalSeconds) || intervalSeconds <= 0 || images.length <= 1) return;
+
+                    intervalId = setInterval(() => {
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        updateActiveState(currentIndex);
+                    }, intervalSeconds * 1000);
+                };
+
+                updateActiveState(0); // Set initial state
+                startSlideshow(); // Start the automatic slideshow
+            };
+            const renderMobil = (container, mobilList, wa) => { if (!container || !mobilList) return; container.innerHTML = mobilList.map((mobil, index) => { const displayVariant = (mobil.tipeList && mobil.tipeList.find(t => t.dp && t.cicilan)) || {}; const hasTipeList = mobil.tipeList && mobil.tipeList.length > 0; let tableHtml = ''; if (hasTipeList) { const tableRows = mobil.tipeList.map(tipe => ` <tr class="border-b last:border-b-0"> <td class="px-2 py-2 font-medium text-gray-900">${tipe.nama || '-'}</td> <td class="px-2 py-2">${tipe.harga || '-'}</td> <td class="px-2 py-2">${tipe.dp || '-'}</td> <td class="px-2 py-2">${tipe.cicilan || '-'}</td> </tr> `).join(''); tableHtml = ` <div id="pricelist-table-${index}" class="hidden mt-4 overflow-x-auto"> <table class="w-full text-xs text-left"> <thead class="bg-gray-100 text-gray-600 uppercase"> <tr> <th class="px-2 py-2">Tipe</th> <th class="px-2 py-2">Harga</th> <th class="px-2 py-2">DP</th> <th class="px-2 py-2">Cicilan</th> </tr> </thead> <tbody> ${tableRows} </tbody> </table> </div> `; } return ` <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col"> <img src="${mobil.img || 'https://placehold.co/600x400'}" alt="${mobil.nama}" class="w-full h-auto"> <div class="p-6 flex flex-col flex-grow"> <h3 class="text-2xl font-bold">${mobil.nama || ''}</h3> <p class="text-red-600 font-bold mt-1">${mobil.harga || ''}</p> <div class="mt-4 pt-4 border-t space-y-3 text-sm"> <div class="flex items-center text-gray-700"> <span class="bg-green-100 text-green-800 text-xs font-bold mr-3 px-2.5 py-1 rounded-full">DP</span> <span>${displayVariant.dp || '-'}</span> </div> <div class="flex items-center text-gray-700"> <span class="bg-blue-100 text-blue-800 text-xs font-bold mr-3 px-2.5 py-1 rounded-full">CICILAN</span> <span>${displayVariant.cicilan || '-'}</span> </div> </div> ${tableHtml} <div class="mt-auto pt-6 space-y-3"> ${hasTipeList ? `<button data-target-table="pricelist-table-${index}" class="toggle-pricelist-btn w-full text-center inline-block bg-gray-100 text-gray-800 px-6 py-3 rounded-full hover:bg-gray-200 font-semibold flex items-center justify-center gap-2"><span>Lihat Tabel Cicilan</span><i data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i></button>` : ''} <a href="https://wa.me/${wa}?text=Halo,%20saya%20tertarik%20dengan%20${encodeURIComponent(mobil.nama || '')}." target="_blank" class="w-full text-center inline-block bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-900 font-semibold">Minta Penawaran</a> </div> </div> </div>`; }).join(''); };
+            const renderPromo = (container, promoList, wa) => { if (!container || !promoList) return; container.innerHTML = promoList.map(promo => ` <div class="text-white p-8 rounded-lg shadow-xl flex flex-col justify-between bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${promo.img || 'https://placehold.co/600x400'}')"> <div><h3 class="text-3xl font-bold">${promo.judul || ''}</h3><p class="mt-2">${promo.deskripsi || ''}</p></div> <a href="https://wa.me/${wa}?text=Halo,%20saya%20tertarik%20dengan%20promo:%20${encodeURIComponent(promo.judul || '')}" target="_blank" class="mt-6 self-start bg-white text-gray-800 px-6 py-2 rounded-full font-bold hover:bg-gray-200">Klaim Promo Ini</a> </div>`).join(''); };
+            
+            const renderTestimoni = (container, testimoniList) => {
+                if (!container || !testimoniList || testimoniList.length === 0) return;
+                container.innerHTML = testimoniList.map(t => `
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                        <img src="${t.img || 'https://placehold.co/100x100'}" alt="Foto ${t.nama}" class="w-24 h-24 rounded-full mb-6 object-cover border-4 border-gray-300">
+                        <p class="text-xl italic text-gray-600 max-w-2xl">"${t.quote || ''}"</p>
+                        <p class="font-bold text-lg text-gray-900 mt-6">${t.nama || ''}</p>
+                        <p class="text-sm text-gray-500">${t.jabatan || ''}</p>
+                    </div>
+                `).join('');
+            };
+
+            const renderGaleri = (containerRow1, containerRow2, galeriList) => {
+                if (!containerRow1 || !containerRow2 || !galeriList || galeriList.length === 0) return;
+                
+                const slideHTML = galeriList.map(g => `
+                    <div class="swiper-slide">
+                        <div class="gallery-image-wrapper">
+                            <img src="${g.img || 'https://placehold.co/800x600'}" alt="${g.caption || 'Galeri'}">
+                        </div>
+                        <div class="caption-block">
+                           ${g.caption || ''}
+                        </div>
+                    </div>`).join('');
+
+                containerRow1.innerHTML = slideHTML;
+                containerRow2.innerHTML = slideHTML;
+                
+                const swiperOptions = {
+                    grabCursor: true,
+                    loop: galeriList.length > 3,
+                    slidesPerView: 1,
+                    spaceBetween: 15,
+                    breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 30 }, }
+                };
+
+                new Swiper('.galeri-swiper-row1', {
+                    ...swiperOptions,
+                    pagination: { el: '.swiper-pagination-row1', clickable: true },
+                    initialSlide: 0,
+                });
+                
+                new Swiper('.galeri-swiper-row2', {
+                    ...swiperOptions,
+                    pagination: { el: '.swiper-pagination-row2', clickable: true },
+                    initialSlide: galeriList.length > 3 ? 3 : 0, // Start from 4th slide if available
+                });
+            };
+            
+            // --- MAIN EXECUTION ---
+            renderTheme(data.brandColor);
+            populateText('title_brand', data.brandName); populateText('title_kota', data.kota); populateText('header_brand', data.brandName); populateText('nav_nama', data.namaPanggilan); populateText('hero_nama', data.namaPanggilan); populateText('hero_kota', data.kota); populateText('footer_nama', data.namaLengkap); populateText('footer_brand', data.brandName); populateText('footer_credit_nama', data.namaPanggilan);
+            if (data.logoPerusahaan) { const logoEl = document.getElementById('header_logo'); logoEl.src = data.logoPerusahaan; logoEl.classList.remove('hidden'); }
+            populateSrc('hero_fotoProfil', data.fotoProfil); 
+            renderHeroSlideshow(data);
+            const waNum = data.noWhatsapp || ''; const waLink = `https://wa.me/${waNum}?text=Halo%20${encodeURIComponent(data.namaPanggilan || '')}`;
+            populateHref('hero_wa', waLink); populateHref('kontak_wa', `${waLink},%20saya%20siap%20membeli%20mobil.%20Mohon%20info%20terbaiknya.`); populateHref('footer_wa', waLink); populateHref('footer_telp', `tel:${waNum}`); populateHref('footer_ig', data.linkInstagram); populateHref('wa_melayang', waLink);
+            renderMobil(document.getElementById('mobil-card-container'), data.daftarMobil, waNum);
+            renderPromo(document.getElementById('promo-card-container'), data.daftarPromo, waNum);
+            renderTestimoni(document.getElementById('testimoni-card-container'), data.daftarTestimoni);
+            renderGaleri(
+                document.getElementById('galeri-card-container-row1'),
+                document.getElementById('galeri-card-container-row2'),
+                data.daftarGaleri
+            );
+            lucide.createIcons();
+            
+            // Event Listeners
+            document.body.addEventListener('click', (e) => { const button = e.target.closest('.toggle-pricelist-btn'); if (button) { const targetId = button.dataset.targetTable; const tableDiv = document.getElementById(targetId); const icon = button.querySelector('i'); if (tableDiv) { const isHidden = tableDiv.classList.contains('hidden'); tableDiv.classList.toggle('hidden'); if (isHidden) { icon.style.transform = 'rotate(180deg)'; } else { icon.style.transform = 'rotate(0deg)'; } } } });
+            const mobileMenuButton = document.getElementById('mobile-menu-button'); const mobileMenu = document.getElementById('mobile-menu'); mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden')); mobileMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+    </script>
+</body>
+</html>
